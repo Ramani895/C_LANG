@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void printForward(int n) {
+    if (n < 10) {
+        printf("%d ", n);
+        return;
+    }
+    printForward(n / 10);
+    printf("%d ", n % 10);
+}
+
+void printBackward(int n) {
+    if (n < 10) {
+        printf("%d ", n);
+        return;
+    }
+    printf("%d ", n % 10);
+    printBackward(n / 10);
+}
+
+void main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Digits in forward order: ");
+    printForward(num);
+
+    printf("\nDigits in backward order: ");
+    printBackward(num);
+
+    printf("\n");
+}
